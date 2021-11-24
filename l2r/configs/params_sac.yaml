@@ -5,17 +5,17 @@ sac_kwargs:
   total_steps: 2_000_000
   replay_size: 250_000
   batch_size: 128
-  start_steps: 1000
-  update_after: 3000
+  start_steps: 0
+  update_after: 100
   num_updates: 12
-  max_ep_len: 2000
+  max_ep_len: 5000
   encoder_path: './common/models/vae-thruxton-anglesey.pth'
   latent_dims: 32
   im_w: 144
   im_h: 144
-  checkpoint: './baselines/checkpoints/thruxton/sac_episode_1000.pt'
-  inference_only: False
-  save_path: /mnt/results/
+  checkpoint: './baselines/checkpoints/thruxton/sac_episode_2094.pt'
+  inference_only: True
+  save_path: /home/matthew/Documents/learn-to-race/training_results/
 
 env_kwargs:
   multimodal: False
@@ -29,10 +29,10 @@ env_kwargs:
   controller_kwargs:
     sim_version: 'ArrivalSim-linux-0.7.0-cmu4'
     quiet: True
-    user: 'ubuntu'
+    user: 'matthew'
     start_container: False
     sim_path: '/mnt/ArrivalSim-linux-0.7.0-cmu4/ArrivalSim-linux-0.7.0.182276/LinuxNoEditor'
-    # sim_path: '/home/ubuntu/ArrivalSim-linux-0.7.0-cmu4/ArrivalSim-linux-0.7.0.182276/LinuxNoEditor'
+    # sim_path: '/home/matthew/Documents/learn-to-race/ArrivalSim-linux-0.7.1.188691/LinuxNoEditor'
   action_if_kwargs:
     max_accel: 4.
     min_accel: -1.

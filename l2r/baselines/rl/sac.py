@@ -163,7 +163,7 @@ def sac(env, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
     np.random.seed(seed)
 
     # Load image encoder
-    if encoder_path:
+    if encoder_path is not None:
         vae = VAE().to(DEVICE)
         vae.load_state_dict(torch.load(encoder_path, map_location=DEVICE))
 
@@ -180,7 +180,7 @@ def sac(env, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
     # act_limit = env.action_space.high[0]
 
     # Create actor-critic module and target networks
-    if checkpoint:
+    if checkpoint is not None:
         ac = torch.load(checkpoint)
         ep_num = int(''.join(filter(str.isdigit, os.path.split(checkpoint)[-1])))
     else:
