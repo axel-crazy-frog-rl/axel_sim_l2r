@@ -13,3 +13,8 @@ datasets/thruxton-resized/
 
 assets/vids/
 assets/checkpoints/
+
+ArrivalSim-linux-0.7.1.188691/*
+*.pt
+*.
+training_results/*
