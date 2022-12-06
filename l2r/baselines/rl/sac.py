@@ -181,6 +181,7 @@ def sac(env, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
 
     # Create actor-critic module and target networks
     if checkpoint is not None:
+        print('Loading checkpoint {}'.format(checkpoint))
         ac = torch.load(checkpoint)
         ep_num = int(''.join(filter(str.isdigit, os.path.split(checkpoint)[-1])))
     else:
@@ -317,7 +318,7 @@ def sac(env, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
                 ep_len += 1
 
             print(f'[eval episode] {info}')
-
+    ##############################################################################################
     if inference_only:
         test_agent()
 
@@ -329,7 +330,6 @@ def sac(env, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
 
         # Main loop: collect experience in env and update/log each epoch
         for t in range(total_steps):
-
             # Until start_steps have elapsed, randomly sample actions
             # from a uniform distribution for better exploration. Afterwards,
             # use the learned policy.
@@ -368,6 +368,7 @@ def sac(env, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
                         update(data=batch)
 
                 # Save if best (or periodically)
+                print('Episode return {}'.format(ep_ret))
                 if (ep_ret > best_ret and ep_ret > 250):
                     print(f'New best episode reward of {round(ep_ret,1)}!')
                     best_ret = ep_ret

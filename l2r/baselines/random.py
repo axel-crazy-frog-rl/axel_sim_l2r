@@ -26,6 +26,7 @@ class RandomActionAgent(AbstractAgent):
             ep_reward = 0
             state, done = self.env.reset(), False
 
+            print(state)
             while not done:
                 action = self.select_action()
                 state, reward, done, info = self.env.step(action)
@@ -33,7 +34,7 @@ class RandomActionAgent(AbstractAgent):
 
             print(f'Completed episode with total reward: {ep_reward}')
             print(f'Episode info: {info}\n')
-
+    
     def select_action(self):
         """Select a random action from the action space.
 

@@ -17,16 +17,16 @@ il_kwargs:
   latent_dims: 32
   im_w: 144
   im_h: 144
-  checkpoint: 'il_episode_19.pt'
+  checkpoint: 'il_episode_90.pt'
   inference_only: True
   save_path: './results/il/'
-  TRAIN_BS: 64
-  VAL_BS: 128
+  TRAIN_BS: 32
+  VAL_BS: 32
   CPU: 4
   GPU: 1
   PIN: TRUE
   DATASET:
-      LOCATION: "/home/jmf1/data/l2r_expert_demonstrations"
+      LOCATION: "/home/mrsd-lab/Documents/IDL/project/l2r_expert_demonstrations"
       NAME: "thruxton"
       LOOKAHEAD: 1
       SPLIT:
@@ -46,7 +46,7 @@ env_kwargs:
   controller_kwargs:
     sim_version: 'ArrivalSim-linux-0.3.0.137341-roborace'
     quiet: False
-    start_container: True
+    start_container: False
   action_if_kwargs:
     max_accel: 6.
     min_accel: 3.
@@ -62,9 +62,38 @@ env_kwargs:
     port: 8008
   logger_kwargs:
     default: True
+  cameras:
+    CameraFrontRGB:
+      Addr: 'tcp://0.0.0.0:8008'
+      Format: ColorBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True
+    CameraLeftRGB:
+      Addr: 'tcp://0.0.0.0:8009'
+      Format: ColorBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True
+    CameraRightRGB:
+      Addr: 'tcp://0.0.0.0:8010'
+      Format: ColorBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True
+    CameraBirdsEye:
+      Addr: 'tcp://0.0.0.0:10008'
+      Format: HdrRGB8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True
 
 sim_kwargs:
-  racetrack: 'Thruxton' # ['VegasNorthRoad', 'Thruxton']
+  racetrack: ['Thruxton'] # ['VegasNorthRoad', 'Thruxton']
   vehicle: 1
   active_sensors:
     - ImuOxtsSensor

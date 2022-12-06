@@ -44,11 +44,17 @@ if [ "$BASELINE" != "" ]; then
     if [ "$BASELINE" == "random" ]; then
         python3 scripts/runner_random.py configs/params_random.yaml
         exit 0;
+    elif [ "$BASELINE" == "axel-il" ]; then
+        python3 scripts/runner_axel_il.py configs/params_random.yaml
+        exit 0;
     elif [ "$BASELINE" == "sac" ]; then
         python3 scripts/runner_sac.py configs/params_sac.yaml
         exit 0;
     elif [ "$BASELINE" == "mpc" ]; then
         python3 scripts/runner_mpc.py configs/params_mpc.yaml
+        exit 0;
+    elif [ "$BASELINE" == "il" ]; then
+        python3 scripts/runner_il.py configs/params_il.yaml
         exit 0;
     else
         echo "Expecting baseline to be in ['random', 'sac', 'mpc']"

@@ -40,6 +40,7 @@ class CustomReward(GranTurismo):
         self.min_oob_penalty = min_oob_penalty
         self.c_bonus = centerline_bonus
         self.d_thresh = dist_threshold
+        print('Using custom reward')
 
     def get_reward(self, state, oob_flag=False):
         """The reward for the given state is the sum of its progress reward
@@ -53,10 +54,13 @@ class CustomReward(GranTurismo):
         (pose_data, race_idx) = state
         velocity = np.linalg.norm(pose_data[VELOCITY_IDX_LOW:VELOCITY_IDX_HIGH])
         loc = np.array([pose_data[EAST_IDX], pose_data[NORTH_IDX]])
-        oob_reward = self._reward_oob(velocity, oob_flag)
-        progress_reward = self._reward_progress(race_idx)
-        bonus = self._reward_centerline(race_idx, loc, progress_reward)
-        return oob_reward + progress_reward + bonus
+        self.oob_reward = self._reward_oob(velocity, oob_flag)
+        self.progress_reward = self._reward_progress(race_idx)
+        self.bonus = self._reward_centerline(race_idx, loc, self.progress_reward)
+        zero_velo_penalty = -1.0
+        
+        self.zero_velo_penalty =  zero_velo_penalty+velocity
+        return self.oob_reward + self.progress_reward + self.bonus + self.zero_velo_penalty
 
     def _reward_centerline(self, race_idx, loc, progress_reward):
         """Provide bonus reward if near the centerline if there has been

@@ -105,9 +105,10 @@ class RacingEnv(gym.Env):
       waypoints on the track in the info returned from **step()**
    """
     def __init__(self, max_timesteps, controller_kwargs, reward_kwargs,
-                 action_if_kwargs, pose_if_kwargs, cameras, obs_delay=0.10,
+                 action_if_kwargs, pose_if_kwargs, cameras, lidar_if_kwargs = None, obs_delay=0.10,
                  reward_pol='default', training=True,
                  not_moving_timeout=20, provide_waypoints=False):
+        
         self.controller = SimulatorController(**controller_kwargs)
         self.action_if = utils.ActionInterface(**action_if_kwargs)
         self.pose_if = utils.PoseInterface(**pose_if_kwargs)
@@ -121,7 +122,9 @@ class RacingEnv(gym.Env):
         self.provide_waypoints = provide_waypoints
         self.last_restart = time.time()
         self.training = training
-
+        
+        # self.lidar_if = utils.LiDARInterface(**pose_if_kwargs)
+        
         # openAI gym compliance - action space
         self.action_space = Box(low=-1., high=1., shape=(2,), dtype=np.float64)
 
@@ -143,6 +146,7 @@ class RacingEnv(gym.Env):
         :param multi_agent: not currently supported
         :param bool remake: if remaking, reset the camera interfaces
         """
+        print('Received levels {}'.format(level))
         self.levels = level
         self.active_level = random.choice(self.levels)
         self.active_level_id = RACETRACKS[self.active_level]
@@ -177,6 +181,8 @@ class RacingEnv(gym.Env):
             self.pose_if.start()
             for name, params, cam in self.cameras:
                 cam.start(img_dims=(params['Width'], params['Height'], 3))
+                
+            # self.lidar_if.start()
 
     def step(self, action):
         """The primary method of the environment. Executes the desired action,
@@ -197,9 +203,10 @@ class RacingEnv(gym.Env):
         _pose, obs = _obs
 
         obs['track_id'] = self.active_level_id
-
+        
         if self.multimodal:
             obs['pose'] = _pose
+            # obs['lidar'] = lidar
 
         done, info = self._is_complete()
         reward = self.reward.get_reward(
@@ -212,6 +219,11 @@ class RacingEnv(gym.Env):
             info['track_idx'] = self.nearest_idx
             info['waypoints'] = self._waypoints()
 
+        # Add individual rewards
+        # info['oob_reward'] = self.reward.oob_reward
+        # info['progress_reward'] = self.reward.progress_reward
+        # info['center_line_reward'] = self.reward.bonus
+        # info['zero_velo_reward'] = self.reward.zero_velo_penalty
         return obs, reward, done, info
 
     def reset(self, level=False, random_pos=True):
@@ -257,6 +269,7 @@ class RacingEnv(gym.Env):
 
         self.reward.reset()
         self.pose_if.reset()
+        # self.lidar_if.reset()
 
         for _, _, cam in self.cameras:
             cam.reset()
@@ -271,6 +284,7 @@ class RacingEnv(gym.Env):
 
         if self.multimodal:
             obs['pose'] = _pose
+            # obs['lidar'] = lidar
 
         self.tracker.reset(start_idx=self.nearest_idx)
 
@@ -348,6 +362,8 @@ class RacingEnv(gym.Env):
         time.sleep(self.observation_delay)
         pose = self.pose_if.get_data()
         imgs = {name: cam.get_data() for name, _, cam in self.cameras}
+        
+        # lidar = self.lidar_if.get_data()
 
         yaw = pose[12]
         bp = pose[22:25]

@@ -29,6 +29,8 @@ N_STATE = 4  # [x, y, v, yaw]
 T = 6
 dl = 0.25
 
+i = 0
+
 
 class MPCAgent(AbstractAgent):
     """Agent that selects actions using an MPC controller
@@ -58,12 +60,15 @@ class MPCAgent(AbstractAgent):
             self._imgs = []
             self._multimodal = []
             self._actions = []
+            self._bev_imgs = []
 
         for e in range(self.num_episodes):
             print('=' * 10 + f' Episode {e+1} of {self.num_episodes} ' + '=' * 10)
             ep_reward, ep_timestep = 0, 0
             obs, info = self.env.reset()
             obs, reward, done, info = self.env.step([0, 1])
+            # print(obs.keys())
+            # exit()
 
             while not done:
                 x, y, v, yaw = MPCAgent.unpack_state(obs)
@@ -102,20 +107,39 @@ class MPCAgent(AbstractAgent):
                 ep_timestep += 1
 
                 if self.save_transitions:
-                    (data, img) = obs
-                    self._imgs.append(img)
-                    self._multimodal.append(data)
-                    self._actions.append(np.array([di, ai]))
-
-                    if done:
-                        for i in range(len(self._imgs)):
-                            filename = f'{self.save_path}/transitions_{i}'
-                            np.savez_compressed(
-                                filename,
-                                img=self._imgs[i],
-                                multimodal_data=self._multimodal[i],
-                                action=self._actions[i]
-                            )
+                    data = obs['pose']
+                    front_camera_seg = obs['CameraFrontSegm']
+                    bev_camera_seg = obs['CameraBirdsEyeSegm']
+                    pose = obs['pose']
+                    
+                    global i
+                    i += 1
+                    
+                    filename = f'{self.save_path}/transitions_{i}'
+                    np.savez_compressed(
+                        filename,
+                        img_front_seg = front_camera_seg,
+                        img_bev_seg = front_camera_seg,
+                        multimodal_data = pose,
+                        action = np.array([di, ai])
+                    )
+                    # self._imgs.append(front_camera_seg)
+                    # self._bev_imgs.append(bev_camera_seg)
+                    # self._multimodal.append(data)
+                    # self._actions.append(np.array([di, ai]))
+                    # print(len(self._imgs))
+                    # if len(self._imgs) > 20_000:
+                    #     for i in range(len(self._imgs)):
+                    #         filename = f'{self.save_path}/transitions_{i}'
+                    #         np.savez_compressed(
+                    #             filename,
+                    #             img_front_seg=self._imgs[i],
+                    #             img_bev_seg=self._bev_imgs[i],
+                    #             multimodal_data=self._multimodal[i],
+                    #             action=self._actions[i]
+                    #         )
+                    #     print("Finished saving")
+                    #     exit()
 
             print(f'Completed episode with total reward: {ep_reward}')
             print(f'Episode info: {info}\n')
@@ -174,6 +198,14 @@ class MPCAgent(AbstractAgent):
     def select_action(self):
         pass
 
+    def save_training_samples(self, obs, filename):
+        front_camera_seg = obs['CameraFrontSegm']
+        bev_camera_seg = obs['CameraBirdsEyeSegm']
+        pose = obs['pose']
+
+        np.savez(filename+".npz", front_camera_seg=front_camera_seg, 
+                 bev_camera_seg=bev_camera_seg, pose = pose)
+        
     def create_env(self, env_kwargs, sim_kwargs):
         """Instantiate a racing environment
 
@@ -188,16 +220,22 @@ class MPCAgent(AbstractAgent):
             reward_pol=env_kwargs['reward_pol'],
             reward_kwargs=env_kwargs['reward_kwargs'],
             action_if_kwargs=env_kwargs['action_if_kwargs'],
-            camera_if_kwargs=env_kwargs['camera_if_kwargs'],
+            #camera_if_kwargs=env_kwargs['camera_if_kwargs'],
             pose_if_kwargs=env_kwargs['pose_if_kwargs'],
-            provide_waypoints=env_kwargs['provide_waypoints']
+            provide_waypoints=env_kwargs['provide_waypoints'],
+            cameras=env_kwargs['cameras']
         )
-
+    
+        # self.env.make(
+        #     level=sim_kwargs['racetrack'],
+        #     multimodal=env_kwargs['multimodal'],
+        #     driver_params=sim_kwargs['driver_params']
+        # )
         self.env.make(
             level=sim_kwargs['racetrack'],
             multimodal=env_kwargs['multimodal'],
             driver_params=sim_kwargs['driver_params'],
-            camera_params=sim_kwargs['camera_params'],
+            # camera_params=sim_kwargs['camera_params'],
             sensors=sim_kwargs['active_sensors']
         )
 

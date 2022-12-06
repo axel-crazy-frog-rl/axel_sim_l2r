@@ -247,6 +247,63 @@ class CameraInterface(AbstractInterface):
         if ocv_type == CV_64F:
             return np.float64
 
+class LiDARInterface(AbstractInterface):
+    """Receives sensor data from the simulator. The data received is in the
+    following format:
+
+    [0,1,2] steering, gear, mode \n
+    [3,4,5] velocity \n
+    [6,7,8] acceleration \n
+    [9,10,11] angular velocity \n
+    [12,13,14] yaw, pitch, roll \n
+    [15,16,17] location coordinates in the format (y, x, z) \n
+    [18,19,20 21] rpm (by wheel) \n
+    [22,23,24,25] brake (by wheel) \n
+    [26,27,28,29] torq (by wheel)
+
+    :param str ip: ip address
+    :param int port: port to bind to
+    :param int data_elems: number of elements to listen for, elements are
+      assumed to be of type float
+    """
+
+    def __init__(self, ip='', port=8200, name='', position=[], data_elems=30):
+        addr = (ip, port)
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.sock.bind(addr)
+        self.data_elems = data_elems
+        self.name = name
+        self.position = position
+
+    def start(self):
+        """Starts a thread to listen for data from the simulator.
+        """
+        self.reset()
+        self.thread = threading.Thread(target=self._receive, daemon=True)
+        self.thread.start()
+
+    def get_data(self):
+        """Return the most recent data received from the simulator.
+
+        :return: data from the simulator
+        :rtype: array of length self.data_elems
+        """
+        return copy.deepcopy(self.data)
+
+    def reset(self):
+        """Allocates memory for data receive.
+        """
+        self.data = np.zeros(shape=(self.data_elems,), dtype=float)
+
+    def _receive(self):
+        """Indefinitely wait for data from the simulator and unpack into an
+        array.
+        """
+        while True:
+            bytes, addr = self.sock.recvfrom(BUFFER)
+            assert len(bytes) == IN_MSG_HEADER_LENGTH
+            self.data = np.asarray(struct.unpack(IN_MSG_HEADER_FMT, bytes))
 
 class GeoLocation(object):
     """Global to local coordinate conversion class.

@@ -13,9 +13,9 @@ sac_kwargs:
   latent_dims: 32
   im_w: 144
   im_h: 144
-  checkpoint: './baselines/checkpoints/thruxton/sac_episode_2094.pt'
+  checkpoint: '/home/mrsd-lab/Documents/learn-to-race/training_results/sac_episode_1797.pt'
   inference_only: True
-  save_path: /home/matthew/Documents/learn-to-race/training_results/
+  save_path: /home/mrsd-lab/Documents/learn-to-race/training_results2/
 
 env_kwargs:
   multimodal: False
@@ -29,7 +29,7 @@ env_kwargs:
   controller_kwargs:
     sim_version: 'ArrivalSim-linux-0.7.0-cmu4'
     quiet: True
-    user: 'matthew'
+    user: 'axel-rl'
     start_container: False
     sim_path: '/mnt/ArrivalSim-linux-0.7.0-cmu4/ArrivalSim-linux-0.7.0.182276/LinuxNoEditor'
     # sim_path: '/home/matthew/Documents/learn-to-race/ArrivalSim-linux-0.7.1.188691/LinuxNoEditor'

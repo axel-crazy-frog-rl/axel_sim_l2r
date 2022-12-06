@@ -2,10 +2,10 @@
 
 mpc_kwargs:
   num_episodes: 3
-  velocity_target: 14 # m/s
+  velocity_target: 15 # m/s
   step_size: 8 # number of indicies b/w waypoints
-  save_transitions: False
-  save_path: False
+  save_transitions: True
+  save_path: "multimodal_learning_run"
   plot: False
 
 env_kwargs:
@@ -38,11 +38,71 @@ env_kwargs:
   camera_if_kwargs:
     ip: 'tcp://127.0.0.1'
     port: 8008
+  lidar_if_kwargs:
+    ip: 'tcp://0.0.0.0'
+    port: 8200
+    name: LidarInnovizPro
+    position: [2.794, 0, 0.215]
+  cameras:
+    CameraFrontRGB:
+      Addr: 'tcp://0.0.0.0:8008'
+      Format: ColorBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True
+    CameraLeftRGB:
+      Addr: 'tcp://0.0.0.0:8009'
+      Format: ColorBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True
+    CameraRightRGB:
+      Addr: 'tcp://0.0.0.0:8010'
+      Format: ColorBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True
+    CameraBirdsEye:
+      Addr: 'tcp://0.0.0.0:10008'
+      Format: HdrRGB8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True
+    CameraFrontSegm:
+      Addr: 'tcp://0.0.0.0:9008'
+      Format: SegmBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True    
+    CameraBirdsEyeSegm:
+      Addr: 'tcp://0.0.0.0:10009'
+      Format: SegmBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True    
+  lidars:
+    LidarInnovizPro:
+      Addr: 'tcp://0.0.0.0:8200'
+      Format: ColorBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      Position: [2.794, 0, 0.215]
+
 
 sim_kwargs:
-  racetrack: ['AngleseyNational']
+  racetrack: ['Thruxton']
   active_sensors:
     - CameraFrontRGB
+    - CameraFrontSegm
+    - CameraBirdsEyeSegm
+    - LidarInnovizPro
   driver_params:
     DriverAPIClass: 'VApiUdp'
     DriverAPI_UDP_SendAddress: '0.0.0.0'
