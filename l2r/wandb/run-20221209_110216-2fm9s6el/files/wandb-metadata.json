@@ -1,0 +1,26 @@
+{
+    "os": "Linux-5.4.0-135-generic-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.6.9",
+    "heartbeatAt": "2022-12-09T16:02:16.622548",
+    "startedAt": "2022-12-09T16:02:16.261753",
+    "docker": null,
+    "gpu": "NVIDIA TITAN X (Pascal)",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "configs/params_ddqn.yaml"
+    ],
+    "state": "running",
+    "program": "scripts/runner_ddqn.py",
+    "codePath": "l2r/scripts/runner_ddqn.py",
+    "git": {
+        "remote": "https://github.com/axel-crazy-frog-rl/axel_sim_l2r.git",
+        "commit": "2ef0a7daf2855ed00cf83455f5d832834e004602"
+    },
+    "email": "arjunchau@gmail.com",
+    "root": "/home/mrsd-lab/Documents/IDL/project/axel_sim_l2r",
+    "host": "MRSD-Lab",
+    "username": "mrsd-lab",
+    "executable": "/usr/bin/python3"
+}

@@ -1,0 +1,1 @@
+{"loss": 153.95686490022683, "Memory_Length": 9721, "Total_Reward": 924.3783357761259, "Episode_Length": 158, "learning_rate": 9.999999747378752e-05, "_timestamp": 1670548309.7664115, "_runtime": 9902.264840602875, "_step": 244, "_wandb": {"runtime": 9912}}

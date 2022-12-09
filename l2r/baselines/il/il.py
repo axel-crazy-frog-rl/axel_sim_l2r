@@ -45,6 +45,11 @@ class ILAgent(AbstractAgent):
         self.model = self.model.to(DEVICE)
         self.save_path = training_kwargs['save_path']
         self.checkpoint_name = training_kwargs['checkpoint']
+                
+                
+        self.file = open('/home/mrsd-lab/Documents/learn-to-race/metrics/il.txt', 'w')
+        datarecord = "pct_complete" + "    " + "total_time" + "    " + "total_distance" + "    " + "average_speed_kph" + "    " + 'average_displacement_error' + "    " + 'trajectory_efficiency'+ "    " + 'trajectory_admissibility' + "    " + 'movement_smoothness' + "    " + 'timestep/sec' + '\n'
+        self.file.write(datarecord)
 
         if training_kwargs['inference_only']:
             self.model.eval()
@@ -109,10 +114,11 @@ class ILAgent(AbstractAgent):
             obs, reward, done, info = self.env.step([0, 1])
 
             while not done:
-                # print(obs)
+                print(obs.keys())
                 print(obs['pose'].shape)
                 # (sensor, img) = obs
-                img = (obs['CameraFrontRGB'])
+                # img = (obs['CameraFrontRGB'])
+                img = (obs['CameraBirdsEyeSegm'])
                 img = Image.fromarray(img)
                 img = self.normalize(img)
                 img = img.unsqueeze(0)
@@ -123,7 +129,7 @@ class ILAgent(AbstractAgent):
                 print(f"action {action}")
                 action = torch.clamp(action, -1, 1)
                 action = action.squeeze(0).detach().numpy()
-                action[0] = action[0]*5
+                # action[0] = action[0]*5
                 obs, reward, done, info = self.env.step(
                     action)
                 ep_reward += reward
@@ -133,11 +139,14 @@ class ILAgent(AbstractAgent):
                 if (ep_reward > best_ep_reward and ep_reward > 250):
                     print(f'New best episode reward of {round(ep_reward,1)}!')
                     best_ep_reward = ep_reward
-                    path_name = f'{self.save_path}il_episode_{e}_best.pt'
-                    torch.save(self.model.state_dict(), path_name)
+                    # path_name = f'{self.save_path}il_episode_{e}_best.pt'
+                    # torch.save(self.model.state_dict(), path_name)
 
             print(f'Completed episode with total reward: {ep_reward}')
             print(f'Episode info: {info}\n')
+            metrics = info["metrics"]
+            data_record = str(metrics["pct_complete"]) + "    " + str(metrics["total_time"]) + "    " + str(metrics["total_distance"]) + "    " + str(metrics["average_speed_kph"]) + "    " + str(metrics['average_displacement_error']) + "    " + str(metrics['trajectory_efficiency']) + "    " + str(metrics['trajectory_admissibility']) + "    " + str(metrics['movement_smoothness']) + "    " + str(metrics['timestep/sec'])  + '\n'
+            self.file.write(data_record)
     
     def eval_dl(self, dataloader):
             """
@@ -197,7 +206,7 @@ class ILAgent(AbstractAgent):
                             # [imgs.shape[0], 3, 512, 384]), "FATAL: unexpectd image shape"
 
                         # USE SIMULATOR IMAGES
-                        img = (obs['CameraFrontRGB'])
+                        img = (obs['CameraBirdsEyeSegm'])
                         # img = np.swapaxes(img,0,1)
                         # img = np.swapaxes(img,1,2)
                         # img = np.swapaxes(img,1,0) #c w h
@@ -271,7 +280,7 @@ class ILAgent(AbstractAgent):
     def load_model(self):
         path = f'{self.save_path}{self.checkpoint_name}'
         print(f"LOADING SAVED MODEL")
-        self.model.load_state_dict(torch.load(path))
+        self.model.load_state_dict(torch.load(path, map_location = 'cuda:0'))
 
     def create_env(self, env_kwargs, sim_kwargs):
         """Instantiate a racing environment

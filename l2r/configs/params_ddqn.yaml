@@ -1,0 +1,66 @@
+ddqn_kwargs:
+  #ac_kwargs:
+   # hidden_sizes: [64, 64]
+  #seed: 0
+  #total_steps: 2_000_000
+  #replay_size: 250_000
+  #batch_size: 128
+  #start_steps: 0
+  #update_after: 100
+  #num_updates: 12
+  #max_ep_len: 5000
+  #encoder_path: './common/models/vae-thruxton-anglesey.pth'
+  #latent_dims: 32
+  #im_w: 144
+  #im_h: 144
+  #loadmodel: None
+  throttle: 0.3
+  loadmodel: '/home/mrsd-lab/Documents/learn-to-race/saved_ddqn1/rl_driver_epoch999.h5'
+  model_path: '/home/mrsd-lab/Documents/learn-to-race/training_results_ddqn/rl_driver_epoch'
+  #inference_only: True
+  test: True
+  save_path: /home/mrsd-lab/Documents/learn-to-race/training_results3/
+
+
+env_kwargs:
+  multimodal: True
+  max_timesteps: 2000
+  obs_delay: 0.1
+  not_moving_timeout: 100
+  reward_pol: 'custom'
+  reward_kwargs:
+    oob_penalty: 5.0
+    min_oob_penalty: 25.0
+  controller_kwargs:
+    sim_version: 'ArrivalSim-linux-0.7.0-cmu4'
+    quiet: True
+    user: 'axel-rl'
+    start_container: False
+    sim_path: '/mnt/ArrivalSim-linux-0.7.0-cmu4/ArrivalSim-linux-0.7.0.182276/LinuxNoEditor'
+    # sim_path: '/home/matthew/Documents/learn-to-race/ArrivalSim-linux-0.7.1.188691/LinuxNoEditor'
+  action_if_kwargs:
+    max_accel: 4.
+    min_accel: -1.
+    max_steer: .3
+    min_steer: -.3
+    ip: '0.0.0.0'
+    port: 7077
+  pose_if_kwargs:
+    ip: '0.0.0.0'
+    port: 7078
+  cameras:
+        CameraFrontRGB:
+            Addr: 'tcp://0.0.0.0:8008'
+            Format: ColorBGR8
+            FOVAngle: 90
+            Width: 192
+            Height: 144
+            bAutoAdvertise: True
+
+sim_kwargs:
+  racetrack: ['Thruxton']
+  active_sensors:
+    - CameraFrontRGB
+  driver_params:
+    DriverAPIClass: 'VApiUdp'
+    DriverAPI_UDP_SendAddress: '0.0.0.0'

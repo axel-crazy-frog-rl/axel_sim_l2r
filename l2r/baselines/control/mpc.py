@@ -115,7 +115,7 @@ class MPCAgent(AbstractAgent):
                     global i
                     i += 1
                     
-                    filename = f'{self.save_path}/transitions_{i}'
+                    filename = f'{self.save_path}/e2_transitions_{i}'
                     np.savez_compressed(
                         filename,
                         img_front_seg = front_camera_seg,

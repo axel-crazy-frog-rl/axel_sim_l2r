@@ -1,0 +1,170 @@
+2022-12-09 11:09:20,706 INFO    StreamThr :14564 [internal.py:wandb_internal():91] W&B internal server running at pid: 14564, started at: 2022-12-09 11:09:20.706284
+2022-12-09 11:09:20,708 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: status
+2022-12-09 11:09:20,709 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: status
+2022-12-09 11:09:20,713 INFO    WriterThread:14564 [datastore.py:open_for_write():75] open: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/run-1iq6csx8.wandb
+2022-12-09 11:09:20,714 DEBUG   SenderThread:14564 [sender.py:send():303] send: header
+2022-12-09 11:09:20,722 DEBUG   SenderThread:14564 [sender.py:send():303] send: run
+2022-12-09 11:09:20,966 INFO    SenderThread:14564 [dir_watcher.py:__init__():216] watching files in: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files
+2022-12-09 11:09:20,966 INFO    SenderThread:14564 [sender.py:_start_run_threads():931] run started: 1iq6csx8 with start time 1670602160.699771
+2022-12-09 11:09:20,966 DEBUG   SenderThread:14564 [sender.py:send():303] send: summary
+2022-12-09 11:09:20,966 INFO    SenderThread:14564 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-09 11:09:20,967 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: check_version
+2022-12-09 11:09:20,967 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: check_version
+2022-12-09 11:09:21,054 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: run_start
+2022-12-09 11:09:21,056 DEBUG   HandlerThread:14564 [meta.py:__init__():34] meta init
+2022-12-09 11:09:21,056 DEBUG   HandlerThread:14564 [meta.py:__init__():49] meta init done
+2022-12-09 11:09:21,056 DEBUG   HandlerThread:14564 [meta.py:probe():215] probe
+2022-12-09 11:09:21,062 DEBUG   HandlerThread:14564 [meta.py:_setup_git():205] setup git
+2022-12-09 11:09:21,075 DEBUG   HandlerThread:14564 [meta.py:_setup_git():212] setup git done
+2022-12-09 11:09:21,076 DEBUG   HandlerThread:14564 [meta.py:_save_pip():53] save pip
+2022-12-09 11:09:21,076 DEBUG   HandlerThread:14564 [meta.py:_save_pip():67] save pip done
+2022-12-09 11:09:21,076 DEBUG   HandlerThread:14564 [meta.py:probe():253] probe done
+2022-12-09 11:09:21,120 DEBUG   SenderThread:14564 [sender.py:send():303] send: files
+2022-12-09 11:09:21,121 INFO    SenderThread:14564 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2022-12-09 11:09:21,126 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: stop_status
+2022-12-09 11:09:21,127 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: stop_status
+2022-12-09 11:09:21,228 DEBUG   SenderThread:14564 [sender.py:send():303] send: telemetry
+2022-12-09 11:09:21,613 INFO    Thread-17 :14564 [upload_job.py:push():143] Uploaded file /tmp/tmpvctao738wandb/3lhk7n8n-wandb-metadata.json
+2022-12-09 11:09:21,968 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_created():275] file/dir created: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/wandb-summary.json
+2022-12-09 11:09:21,968 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_created():275] file/dir created: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/requirements.txt
+2022-12-09 11:09:21,969 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_created():275] file/dir created: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/wandb-metadata.json
+2022-12-09 11:09:21,969 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_created():275] file/dir created: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:09:23,967 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:09:36,231 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: stop_status
+2022-12-09 11:09:36,231 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: stop_status
+2022-12-09 11:09:39,970 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:09:43,971 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:09:47,972 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:09:49,383 DEBUG   SenderThread:14564 [sender.py:send():303] send: stats
+2022-12-09 11:09:51,337 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: stop_status
+2022-12-09 11:09:51,337 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: stop_status
+2022-12-09 11:09:51,973 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/config.yaml
+2022-12-09 11:09:51,974 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:09:55,974 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:09:59,976 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:06,438 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: stop_status
+2022-12-09 11:10:06,438 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: stop_status
+2022-12-09 11:10:11,978 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:15,979 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:19,639 DEBUG   SenderThread:14564 [sender.py:send():303] send: stats
+2022-12-09 11:10:21,541 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: stop_status
+2022-12-09 11:10:21,541 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: stop_status
+2022-12-09 11:10:21,980 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:25,981 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:29,982 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:33,983 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:36,641 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: stop_status
+2022-12-09 11:10:36,641 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: stop_status
+2022-12-09 11:10:37,984 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:41,985 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:48,334 DEBUG   SenderThread:14564 [sender.py:send():303] send: exit
+2022-12-09 11:10:48,334 INFO    SenderThread:14564 [sender.py:send_exit():442] handling exit code: 0
+2022-12-09 11:10:48,335 INFO    SenderThread:14564 [sender.py:send_exit():444] handling runtime: 87
+2022-12-09 11:10:48,337 INFO    SenderThread:14564 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-09 11:10:48,337 INFO    SenderThread:14564 [sender.py:send_exit():450] send defer
+2022-12-09 11:10:48,337 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:48,337 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 0
+2022-12-09 11:10:48,337 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:48,337 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 0
+2022-12-09 11:10:48,337 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 1
+2022-12-09 11:10:48,338 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:48,338 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 1
+2022-12-09 11:10:48,381 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:48,381 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 1
+2022-12-09 11:10:48,381 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 2
+2022-12-09 11:10:48,382 DEBUG   SenderThread:14564 [sender.py:send():303] send: stats
+2022-12-09 11:10:48,382 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:48,382 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 2
+2022-12-09 11:10:48,382 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:48,383 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 2
+2022-12-09 11:10:48,383 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 3
+2022-12-09 11:10:48,383 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:48,383 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 3
+2022-12-09 11:10:48,383 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:48,383 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 3
+2022-12-09 11:10:48,383 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 4
+2022-12-09 11:10:48,383 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:48,383 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 4
+2022-12-09 11:10:48,384 DEBUG   SenderThread:14564 [sender.py:send():303] send: summary
+2022-12-09 11:10:48,384 INFO    SenderThread:14564 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-12-09 11:10:48,384 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:48,384 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 4
+2022-12-09 11:10:48,384 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 5
+2022-12-09 11:10:48,384 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:48,384 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 5
+2022-12-09 11:10:48,385 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:48,385 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 5
+2022-12-09 11:10:48,385 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 6
+2022-12-09 11:10:48,385 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:48,385 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 6
+2022-12-09 11:10:48,385 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:48,385 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 6
+2022-12-09 11:10:48,987 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/wandb-summary.json
+2022-12-09 11:10:49,321 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 7
+2022-12-09 11:10:49,322 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:49,322 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 7
+2022-12-09 11:10:49,322 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:49,322 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 7
+2022-12-09 11:10:49,322 INFO    SenderThread:14564 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-12-09 11:10:49,335 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: poll_exit
+2022-12-09 11:10:49,987 INFO    Thread-13 :14564 [dir_watcher.py:_on_file_modified():292] file/dir modified: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:49,988 INFO    SenderThread:14564 [dir_watcher.py:finish():392] scan: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files
+2022-12-09 11:10:49,988 INFO    SenderThread:14564 [dir_watcher.py:finish():406] scan save: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/wandb-metadata.json wandb-metadata.json
+2022-12-09 11:10:49,988 INFO    SenderThread:14564 [dir_watcher.py:finish():406] scan save: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/config.yaml config.yaml
+2022-12-09 11:10:49,988 INFO    SenderThread:14564 [dir_watcher.py:finish():406] scan save: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/wandb-summary.json wandb-summary.json
+2022-12-09 11:10:49,988 INFO    SenderThread:14564 [dir_watcher.py:finish():406] scan save: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log output.log
+2022-12-09 11:10:49,990 INFO    SenderThread:14564 [dir_watcher.py:finish():406] scan save: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/requirements.txt requirements.txt
+2022-12-09 11:10:49,992 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 8
+2022-12-09 11:10:49,993 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: poll_exit
+2022-12-09 11:10:49,993 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:49,996 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 8
+2022-12-09 11:10:49,996 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:49,998 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 8
+2022-12-09 11:10:49,998 INFO    SenderThread:14564 [file_pusher.py:finish():168] shutting down file pusher
+2022-12-09 11:10:50,336 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: poll_exit
+2022-12-09 11:10:50,336 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: poll_exit
+2022-12-09 11:10:50,493 INFO    Thread-19 :14564 [upload_job.py:push():143] Uploaded file /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/wandb-summary.json
+2022-12-09 11:10:50,495 INFO    Thread-20 :14564 [upload_job.py:push():143] Uploaded file /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/output.log
+2022-12-09 11:10:50,497 INFO    Thread-21 :14564 [upload_job.py:push():143] Uploaded file /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/requirements.txt
+2022-12-09 11:10:50,498 INFO    Thread-18 :14564 [upload_job.py:push():143] Uploaded file /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/files/config.yaml
+2022-12-09 11:10:50,698 INFO    Thread-12 :14564 [sender.py:transition_state():463] send defer: 9
+2022-12-09 11:10:50,699 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:50,699 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 9
+2022-12-09 11:10:50,699 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:50,699 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 9
+2022-12-09 11:10:50,699 INFO    SenderThread:14564 [file_pusher.py:join():173] waiting for file pusher
+2022-12-09 11:10:50,699 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 10
+2022-12-09 11:10:50,699 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:50,699 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 10
+2022-12-09 11:10:50,699 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:50,699 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 10
+2022-12-09 11:10:50,926 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 11
+2022-12-09 11:10:50,926 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:50,926 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 11
+2022-12-09 11:10:50,927 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:50,927 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 11
+2022-12-09 11:10:50,927 INFO    SenderThread:14564 [sender.py:transition_state():463] send defer: 12
+2022-12-09 11:10:50,927 DEBUG   SenderThread:14564 [sender.py:send():303] send: final
+2022-12-09 11:10:50,928 DEBUG   SenderThread:14564 [sender.py:send():303] send: footer
+2022-12-09 11:10:50,928 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: defer
+2022-12-09 11:10:50,928 INFO    HandlerThread:14564 [handler.py:handle_request_defer():161] handle defer: 12
+2022-12-09 11:10:50,928 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: defer
+2022-12-09 11:10:50,928 INFO    SenderThread:14564 [sender.py:send_request_defer():459] handle sender defer: 12
+2022-12-09 11:10:50,929 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: poll_exit
+2022-12-09 11:10:50,929 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: poll_exit
+2022-12-09 11:10:50,930 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: poll_exit
+2022-12-09 11:10:50,931 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: poll_exit
+2022-12-09 11:10:50,931 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: server_info
+2022-12-09 11:10:50,932 DEBUG   SenderThread:14564 [sender.py:send_request():317] send_request: server_info
+2022-12-09 11:10:50,934 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: get_summary
+2022-12-09 11:10:50,934 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: sampled_history
+2022-12-09 11:10:51,113 INFO    MainThread:14564 [wandb_run.py:_footer_history_summary_info():3377] rendering history
+2022-12-09 11:10:51,113 INFO    MainThread:14564 [wandb_run.py:_footer_history_summary_info():3409] rendering summary
+2022-12-09 11:10:51,113 INFO    MainThread:14564 [wandb_run.py:_footer_sync_info():3333] logging synced files
+2022-12-09 11:10:51,113 DEBUG   HandlerThread:14564 [handler.py:handle_request():138] handle_request: shutdown
+2022-12-09 11:10:51,113 INFO    HandlerThread:14564 [handler.py:finish():814] shutting down handler
+2022-12-09 11:10:51,928 INFO    WriterThread:14564 [datastore.py:close():279] close: /home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/wandb/run-20221209_110920-1iq6csx8/run-1iq6csx8.wandb
+2022-12-09 11:10:52,112 INFO    SenderThread:14564 [sender.py:finish():1331] shutting down sender
+2022-12-09 11:10:52,112 INFO    SenderThread:14564 [file_pusher.py:finish():168] shutting down file pusher
+2022-12-09 11:10:52,112 INFO    SenderThread:14564 [file_pusher.py:join():173] waiting for file pusher
+2022-12-09 11:10:52,116 INFO    MainThread:14564 [internal.py:handle_exit():78] Internal process exited

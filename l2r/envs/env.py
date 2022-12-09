@@ -161,6 +161,7 @@ class RacingEnv(gym.Env):
         self._load_map()
 
         for cam_name, _, _ in self.cameras:
+            print("cam_name: ",cam_name)
             self.controller.enable_sensor(cam_name)
 
         if sensors:

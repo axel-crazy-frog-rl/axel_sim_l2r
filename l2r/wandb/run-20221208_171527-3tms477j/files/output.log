@@ -1,0 +1,15 @@
+!!!!!!!!!!!!!!!!!!!loaded model path: True
+!!!!!!!!!!!!!!!!!!!!load the saved model:  /home/mrsd-lab/Documents/learn-to-race/saved_ddqn1/rl_driver_epoch999.h5
+Episode:  0
+Traceback (most recent call last):
+  File "scripts/runner_ddqn.py", line 58, in <module>
+    run_ddqn(sim_kwargs['racetrack'],env=env, args=ddqn_kwargs)
+  File "/home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/baselines/rl/ddqn.py", line 429, in run_ddqn
+    train_loss += loss
+UnboundLocalError: local variable 'train_loss' referenced before assignment
+Traceback (most recent call last):
+  File "scripts/runner_ddqn.py", line 58, in <module>
+    run_ddqn(sim_kwargs['racetrack'],env=env, args=ddqn_kwargs)
+  File "/home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/baselines/rl/ddqn.py", line 429, in run_ddqn
+    train_loss += loss
+UnboundLocalError: local variable 'train_loss' referenced before assignment

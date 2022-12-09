@@ -17,7 +17,7 @@ il_kwargs:
   latent_dims: 32
   im_w: 144
   im_h: 144
-  checkpoint: 'il_episode_90.pt'
+  checkpoint: 'il_episode_80.pt'
   inference_only: True
   save_path: './results/il/'
   TRAIN_BS: 32
@@ -26,12 +26,12 @@ il_kwargs:
   GPU: 1
   PIN: TRUE
   DATASET:
-      LOCATION: "/home/mrsd-lab/Documents/IDL/project/l2r_expert_demonstrations"
+      LOCATION: "/home/mrsd-lab/Documents/IDL/project/axel_sim_l2r/l2r/multimodal_learning_run"
       NAME: "thruxton"
       LOOKAHEAD: 1
       SPLIT:
           TRAIN: "train"
-          VAL: "val"
+          VAL: "train"
       PRELOAD_NAME: "il_thruxton"
 
 env_kwargs:
@@ -91,6 +91,20 @@ env_kwargs:
       Width: 512
       Height: 384
       bAutoAdvertise: True
+    CameraFrontSegm:
+      Addr: 'tcp://0.0.0.0:9008'
+      Format: SegmBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True   
+    CameraBirdsEyeSegm:
+      Addr: 'tcp://0.0.0.0:10009'
+      Format: SegmBGR8
+      FOVAngle: 90
+      Width: 512
+      Height: 384
+      bAutoAdvertise: True    
 
 sim_kwargs:
   racetrack: ['Thruxton'] # ['VegasNorthRoad', 'Thruxton']
@@ -98,6 +112,8 @@ sim_kwargs:
   active_sensors:
     - ImuOxtsSensor
     - CameraFrontRGB
+    - CameraBirdsEyeSegm
+    - CameraFrontSegm
   driver_params:
     DriverAPIClass: 'VApiUdp'
     DriverAPI_UDP_SendAddress: '0.0.0.0'

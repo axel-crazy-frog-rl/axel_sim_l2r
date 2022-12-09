@@ -16,7 +16,7 @@ print_usage()
 	echo ""
 	echo " Arguments:"
 	echo "  -h, --help      |  shows this message"
-	echo "  -b, --baseline  |  run a baseline model ['random', 'sac', 'mpc']"
+	echo "  -b, --baseline  |  run a baseline model ['random', 'sac', 'mpc','ddqn']"
 	echo "  -c, --config    |  configuration file, passed as -c to script"
 	echo "  -s, --script    |  python script to run"
 }
@@ -55,6 +55,9 @@ if [ "$BASELINE" != "" ]; then
         exit 0;
     elif [ "$BASELINE" == "il" ]; then
         python3 scripts/runner_il.py configs/params_il.yaml
+        exit 0;
+    elif [ "$BASELINE" == "ddqn" ]; then
+        python3 scripts/runner_ddqn.py configs/params_ddqn.yaml
         exit 0;
     else
         echo "Expecting baseline to be in ['random', 'sac', 'mpc']"
